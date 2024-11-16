@@ -61,6 +61,18 @@ public class MainActivity extends AppCompatActivity {
 
             resumoPedido.setText(resumo);
         });
+
+        baconCheckbox.setOnCheckedChangeListener((buttonView, isChecked) ->
+                resumoPedido(resumoPedido, baconCheckbox.isChecked(), queijoCheckbox.isChecked(), onionCheckbox.isChecked())
+        );
+
+        queijoCheckbox.setOnCheckedChangeListener((buttonView, isChecked) ->
+                resumoPedido(resumoPedido, baconCheckbox.isChecked(), queijoCheckbox.isChecked(), onionCheckbox.isChecked())
+        );
+
+        onionCheckbox.setOnCheckedChangeListener((buttonView, isChecked) ->
+                resumoPedido(resumoPedido, baconCheckbox.isChecked(), queijoCheckbox.isChecked(), onionCheckbox.isChecked())
+        );
     }
 
 
@@ -74,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         if (temBacon) precoAdicionais += 2;
         if (temQueijo) precoAdicionais += 2;
         if (temOnion) precoAdicionais += 3;
+
 
         int precoTotal = (basePrice + precoAdicionais) * qtd;
         resumoPedido.setText("Preço atual: R$ " + precoTotal);
